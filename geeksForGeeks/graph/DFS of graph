@@ -1,0 +1,21 @@
+question: https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1
+
+public solution{
+ void func(vector<int> adj[],int u,vector<int> &result,vector<int> &visi){
+        visi[u]=1;
+        result.push_back(u);
+        for(auto i:adj[u]){
+            if(!visi[i]){
+                func(adj,i,result,visi);
+            }
+        }
+    }
+    
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        vector<int> visi(V,0);
+        vector<int> result;
+        func(adj,0,result,visi);
+        return result;
+    }
+
+}
